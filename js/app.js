@@ -154,7 +154,11 @@ angular.module("nipp", ['ace.angular', 'ng.deviceDetector'])
     // Set empty string as default input
     $scope.inputText  = "";
     // Set decoded location.hash as default script
-    $scope.script = decodeCode(titleAndCode.encodedCode, $scope.compressionAlg.decompress);
+    // $scope.script = decodeCode(titleAndCode.encodedCode, $scope.compressionAlg.decompress);
+    $.get('https://raw.githubusercontent.com/ongaeshi/milkode/master/lib/milkode.rb').then(function (src) {
+      console.log(src);
+      $scope.script = src;
+    });
     // Generated JavaScript code
     $scope.transpiledJsCode = "";
     // Whether transpiled JS code is shown or not

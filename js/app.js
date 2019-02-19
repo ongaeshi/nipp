@@ -154,11 +154,16 @@ angular.module("nipp", ['ace.angular', 'ng.deviceDetector'])
     // Set empty string as default input
     $scope.inputText  = "";
     // Set decoded location.hash as default script
-    // $scope.script = decodeCode(titleAndCode.encodedCode, $scope.compressionAlg.decompress);
-    $.get('https://raw.githubusercontent.com/ongaeshi/milkode/master/lib/milkode.rb').then(function (src) {
-      console.log(src);
+    $scope.script = decodeCode(titleAndCode.encodedCode, $scope.compressionAlg.decompress);
+
+    var url = "https://gist.githubusercontent.com/ongaeshi/11110c97776f468600a391f07333c97d/raw/a45f6e6aa71b405d41023432203e9256b0ebaea1/length.rb";
+    // var url = "https://raw.githubusercontent.com/ongaeshi/milkode/master/lib/milkode.rb;
+    $.get(url).then(function (src) {
+      // console.log(src);
       $scope.script = src;
+      $scope.transpile();
     });
+    
     // Generated JavaScript code
     $scope.transpiledJsCode = "";
     // Whether transpiled JS code is shown or not

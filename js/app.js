@@ -182,6 +182,8 @@ angular.module("nipp", ['ace.angular', 'ng.deviceDetector'])
     $scope.transpiler.initLibrary();
     // Set default value to global variable "INPUT"
     window.INPUT = $scope.inputText;
+    // Set $scope to global variable "SCOPE"
+    window.SCOPE = $scope;
     // Error string
     $scope.errorStr = "";
     // Whether error string is shown or not
